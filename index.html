@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sterling Music Academy | Simpsonville, SC</title>
+<meta name="description" content="Sterling Music Academy offers private lessons and group programs in Piano, Flute, Guitar, Drums, Voice, and Band Rehearsals for all ages in Simpsonville & Greenville, SC.">
+
+<!-- Favicon / Tab icon -->
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy:   #1B2A4A;
+  --gold:   #B8860B;
+  --gold-lt:#D4A017;
+  --cream:  #FAF8F4;
+  --warm:   #F2EDE4;
+  --text:   #2C2C2C;
+  --muted:  #6B6560;
+  --white:  #FFFFFF;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); font-size: 16px; line-height: 1.7; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 5vw; height: 72px;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(184,134,11,0.15);
+  transition: box-shadow 0.3s;
+}
+nav.scrolled { box-shadow: 0 2px 24px rgba(27,42,74,0.08); }
+
+.nav-logo { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; }
+.nav-logo img { height: 48px; width: 48px; border-radius: 50%; object-fit: cover; }
+.nav-logo-text { display: flex; flex-direction: column; line-height: 1.2; }
+.nav-logo-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem; font-weight: 600; color: var(--navy); letter-spacing: 0.02em;
+}
+.nav-logo-sub {
+  font-size: 0.62rem; font-weight: 400; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--gold);
+}
+
+.nav-links { display: flex; gap: 2.5rem; align-items: center; list-style: none; }
+.nav-links a {
+  text-decoration: none; color: var(--navy); font-size: 0.82rem;
+  letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-cta {
+  background: var(--navy) !important; color: var(--white) !important;
+  padding: 0.55rem 1.4rem; border-radius: 2px; transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--gold) !important; }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(rgba(27,42,74,0.65), rgba(27,42,74,0.65)),
+              url('images/Child_hands_on_piano_keys.jpeg') center/cover no-repeat;
+  display: flex; align-items: center;
+  position: relative; overflow: hidden;
+  padding: 120px 5vw 80px;
+}
+.hero-lines {
+  position: absolute; inset: 0; opacity: 0.04;
+  background-image: repeating-linear-gradient(
+    to bottom, transparent, transparent 40px, #B8860B 40px, #B8860B 41px
+  );
+}
+.hero-arc {
+  position: absolute; right: -80px; top: 50%; transform: translateY(-50%);
+  width: 680px; height: 680px; border-radius: 50%;
+  border: 1px solid rgba(184,134,11,0.25); pointer-events: none;
+}
+.hero-arc::before {
+  content: ''; position: absolute; inset: 40px; border-radius: 50%;
+  border: 1px solid rgba(184,134,11,0.15);
+}
+.hero-arc::after {
+  content: ''; position: absolute; inset: 80px; border-radius: 50%;
+  border: 1px solid rgba(184,134,11,0.08);
+}
+.hero-content { position: relative; z-index: 2; max-width: 680px; }
+.hero-eyebrow {
+  font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold); font-weight: 500; margin-bottom: 1.5rem;
+  display: flex; align-items: center; gap: 0.8rem;
+}
+.hero-eyebrow::before { content: ''; display: inline-block; width: 32px; height: 1px; background: var(--gold); }
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 6vw, 5.2rem); font-weight: 300;
+  color: var(--white); line-height: 1.08;
+  letter-spacing: -0.01em; margin-bottom: 1.8rem;
+}
+.hero h1 em { font-style: italic; color: var(--gold-lt); }
+.hero-sub {
+  font-size: 1.05rem; color: rgba(255,255,255,0.65);
+  font-weight: 300; max-width: 480px; margin-bottom: 2.8rem; line-height: 1.8;
+}
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn-primary {
+  display: inline-block; background: var(--gold); color: var(--white);
+  text-decoration: none; padding: 0.9rem 2.2rem; font-size: 0.82rem;
+  letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500;
+  border-radius: 2px; transition: background 0.2s, transform 0.2s;
+}
+.btn-primary:hover { background: var(--gold-lt); transform: translateY(-1px); }
+.btn-ghost {
+  display: inline-block; border: 1px solid rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.8); text-decoration: none; padding: 0.9rem 2.2rem;
+  font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase;
+  font-weight: 400; border-radius: 2px; transition: border-color 0.2s, color 0.2s;
+}
+.btn-ghost:hover { border-color: var(--gold); color: var(--gold-lt); }
+.hero-scroll-hint {
+  position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  color: rgba(255,255,255,0.3); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+  animation: bounce 2s infinite;
+}
+@keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
+
+/* ── SHARED SECTION ── */
+section { padding: 100px 5vw; }
+.section-eyebrow {
+  font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold); font-weight: 500; margin-bottom: 1rem;
+  display: flex; align-items: center; gap: 0.8rem;
+}
+.section-eyebrow::before { content: ''; display: inline-block; width: 28px; height: 1px; background: var(--gold); }
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 300;
+  color: var(--navy); line-height: 1.15; margin-bottom: 1.2rem;
+}
+.section-title em { font-style: italic; color: var(--gold); }
+.section-lead { font-size: 1rem; color: var(--muted); max-width: 800px; line-height: 1.85; margin-bottom: 3.5rem; }
+
+/* ── PROGRAMS ── */
+#programs { background: var(--cream); }
+.programs-header { text-align: center; }
+.programs-header .section-eyebrow { justify-content: center; }
+.programs-header .section-eyebrow::before { display: none; }
+.programs-header .section-lead { margin: 0 auto 4rem; }
+
+.programs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: rgba(27,42,74,0.08);
+  border: 1px solid rgba(27,42,74,0.08);
+}
+
+.program-card {
+  background: var(--white);
+  padding: 3rem 2rem;
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center;
+  transition: background 0.3s;
+  position: relative; overflow: hidden;
+  cursor: default;
+}
+.program-card::after {
+  content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 0; height: 2px; background: var(--gold); transition: width 0.35s;
+}
+.program-card:hover { background: var(--navy); }
+.program-card:hover::after { width: 60%; }
+.program-card:hover .prog-name { color: var(--white); }
+.program-card:hover .prog-text { color: rgba(255,255,255,0.6); }
+
+.prog-img {
+  width: 140px; height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1.6rem;
+  transition: transform 0.35s, box-shadow 0.35s;
+  display: block;
+}
+.program-card:hover .prog-img {
+  transform: scale(1.05);
+  box-shadow: 0 8px 32px rgba(184,134,11,0.25);
+}
+
+.prog-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem; font-weight: 600;
+  color: var(--navy); margin-bottom: 0.8rem;
+  letter-spacing: 0.02em; transition: color 0.3s;
+}
+.prog-text { font-size: 0.875rem; color: var(--muted); line-height: 1.8; transition: color 0.3s; }
+
+/* ── ABOUT ── */
+#about {
+  background: var(--white);
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 6vw; align-items: center;
+}
+.about-visual {
+  position: relative; aspect-ratio: 4/5;
+background: linear-gradient(rgba(27,42,74,0.55), rgba(27,42,74,0.55)),
+            url('images/Silver_flute_held.jpeg') center/cover no-repeat;
+}
+.about-visual-inner {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.about-quote {
+  position: absolute; bottom: 2rem; left: 2rem; right: 2rem;
+  background: rgba(184,134,11,0.9); padding: 1.5rem; border-radius: 2px;
+}
+.about-quote p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem; font-style: italic; color: var(--white); line-height: 1.5;
+}
+.about-quote cite {
+  display: block; margin-top: 0.5rem;
+  font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.7); font-style: normal;
+}
+.about-content .section-eyebrow { margin-bottom: 0.8rem; }
+.about-body { font-size: 0.97rem; color: var(--muted); line-height: 1.9; margin-bottom: 1.2rem; }
+.about-cta-text {
+  font-size: 1rem; font-weight: 500; color: var(--navy);
+  margin-bottom: 1.6rem; line-height: 1.7;
+}
+.about-stats {
+  display: flex; gap: 2.5rem; margin: 2rem 0;
+  padding: 1.8rem 0;
+  border-top: 1px solid rgba(27,42,74,0.1);
+  border-bottom: 1px solid rgba(27,42,74,0.1);
+}
+.stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.6rem; font-weight: 300; color: var(--navy); line-height: 1; }
+.stat-num span { color: var(--gold); }
+.stat-label { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-top: 0.3rem; }
+.btn-navy {
+  display: inline-block; background: var(--navy); color: var(--white);
+  text-decoration: none; padding: 0.9rem 2.2rem; font-size: 0.82rem;
+  letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500;
+  border-radius: 2px; transition: background 0.2s;
+}
+.btn-navy:hover { background: var(--gold); }
+
+/* ── CONTACT ── */
+#contact {
+  background: var(--navy);
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 6vw; align-items: start;
+}
+#contact .section-title { color: var(--white); }
+#contact .section-eyebrow { color: var(--gold-lt); }
+#contact .section-lead { color: rgba(255,255,255,0.55); }
+.contact-info { margin-top: 2rem; display: flex; flex-direction: column; gap: 1.5rem; }
+.contact-item { display: flex; gap: 1rem; align-items: flex-start; }
+.contact-item-icon {
+  width: 36px; height: 36px; border-radius: 50%;
+  border: 1px solid rgba(184,134,11,0.4);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 2px;
+}
+.contact-item-icon svg { width: 15px; height: 15px; stroke: var(--gold); fill: none; stroke-width: 1.5; }
+.contact-item-label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.2rem; }
+.contact-item-val { font-size: 0.95rem; color: rgba(255,255,255,0.75); }
+
+/* Form styles */
+.contact-form {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(184,134,11,0.2);
+  padding: 2.5rem; border-radius: 2px;
+}
+.contact-form h3 {
+  font-family: 'Cormorant Garamond', serif; font-size: 1.6rem;
+  font-weight: 300; color: var(--white); margin-bottom: 1.8rem;
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 0; }
+.form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
+.form-group label { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+  color: var(--white); padding: 0.75rem 1rem; border-radius: 2px;
+  font-family: 'Inter', sans-serif; font-size: 0.9rem; outline: none;
+  transition: border-color 0.2s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: var(--gold); }
+.form-group select option { background: var(--navy); }
+.form-group textarea { resize: vertical; min-height: 90px; }
+.form-submit {
+  width: 100%; background: var(--gold); color: var(--white);
+  border: none; padding: 1rem; font-family: 'Inter', sans-serif;
+  font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase;
+  font-weight: 500; border-radius: 2px; cursor: pointer; transition: background 0.2s; margin-top: 0.5rem;
+}
+.form-submit:hover { background: var(--gold-lt); }
+.form-submit:disabled { background: #2d6a4f; cursor: default; }
+
+/* Success message */
+.form-success {
+  display: none;
+  text-align: center;
+  padding: 2rem;
+  color: var(--white);
+}
+.form-success .checkmark {
+  font-size: 2.5rem; margin-bottom: 1rem; display: block;
+}
+.form-success h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem; font-weight: 300; margin-bottom: 0.5rem; color: var(--gold-lt);
+}
+.form-success p { font-size: 0.9rem; color: rgba(255,255,255,0.6); }
+
+/* ── FOOTER ── */
+footer {
+  background: #111820; padding: 3rem 5vw;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 1rem;
+  border-top: 1px solid rgba(184,134,11,0.15);
+}
+.footer-logo { display: flex; align-items: center; gap: 0.7rem; }
+.footer-logo img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; opacity: 0.8; }
+.footer-logo-name { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600; color: rgba(255,255,255,0.6); }
+.footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.3); letter-spacing: 0.05em; }
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-links a { font-size: 0.75rem; color: rgba(255,255,255,0.35); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+.footer-links a:hover { color: var(--gold); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .programs-grid { grid-template-columns: repeat(2, 1fr); }
+  #about, #contact { grid-template-columns: 1fr; }
+  .about-visual { aspect-ratio: 3/2; }
+  .form-row { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  nav { padding: 0 1.2rem; }
+  .nav-links { display: none; }
+  .programs-grid { grid-template-columns: 1fr; }
+  section { padding: 70px 1.2rem; }
+  #about, #contact { padding: 70px 1.2rem; }
+  .about-stats { gap: 1.5rem; }
+  footer { flex-direction: column; text-align: center; }
+  .prog-img { width: 120px; height: 120px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-scroll-hint { animation: none; }
+  * { transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <img src="images/logo.png" alt="Sterling Music Academy Logo">
+    <div class="nav-logo-text">
+      <span class="nav-logo-name">Sterling Music Academy</span>
+      <span class="nav-logo-sub">Simpsonville, South Carolina</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact" class="nav-cta">Book a Lesson</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-lines"></div>
+  <div class="hero-arc"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Simpsonville &amp; Greenville, SC</p>
+    <h1>Find Your Sound. Build Your <em>Confidence.</em></h1>
+    <p class="hero-sub">Private lessons and collaborative programs in Piano, Flute, Guitar, Drums, Voice, and Band Rehearsal — for beginners, returning players, and everyone in between.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Book a Trial Lesson</a>
+      <a href="#programs" class="btn-ghost">Explore Programs</a>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">
+    <svg width="16" height="24" viewBox="0 0 16 24" fill="none"><rect x="1" y="1" width="14" height="22" rx="7" stroke="white" stroke-width="1.2"/><circle cx="8" cy="7" r="2" fill="white"/></svg>
+    scroll
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section id="programs">
+  <div class="programs-header">
+    <p class="section-eyebrow">What we offer</p>
+    <h2 class="section-title">Our <em>Programs</em></h2>
+    <p class="section-lead">Six disciplines. One purpose — to discover what music can awaken in you.</p>
+  </div>
+
+  <div class="programs-grid">
+    <div class="program-card">
+      <img src="images/piano.png" alt="Piano lessons" class="prog-img">
+      <h3 class="prog-name">Piano</h3>
+      <p class="prog-text">The foundation of musical mastery. Piano cultivates discipline, creativity, and an ear for harmony that elevates every aspect of your musical journey.</p>
+    </div>
+    <div class="program-card">
+      <img src="images/flute.png" alt="Flute lessons" class="prog-img">
+      <h3 class="prog-name">Flute</h3>
+      <p class="prog-text">One of humanity's oldest instruments — with origins stretching back over 40,000 years. Flute develops breath control, sensitivity, and a refined musicality that carries you through a lifetime of performance.</p>
+    </div>
+    <div class="program-card">
+      <img src="images/guitar.png" alt="Guitar lessons" class="prog-img">
+      <h3 class="prog-name">Guitar</h3>
+      <p class="prog-text">Versatile, expressive, and timeless. Guitar opens the door to countless genres and gives every musician a voice uniquely their own.</p>
+    </div>
+    <div class="program-card">
+      <img src="images/drums.png" alt="Drum lessons" class="prog-img">
+      <h3 class="prog-name">Drums</h3>
+      <p class="prog-text">Where rhythm meets discipline. Percussion training sharpens focus, coordination, and an innate sense of timing that strengthens every ensemble.</p>
+    </div>
+    <div class="program-card">
+      <img src="images/voice.png" alt="Voice lessons" class="prog-img">
+      <h3 class="prog-name">Voice</h3>
+      <p class="prog-text">The most personal instrument of all. Vocal training builds confidence, presence, and the power to move an audience with nothing but breath and intention.</p>
+    </div>
+    <div class="program-card">
+      <img src="images/band.png" alt="Band rehearsals" class="prog-img">
+      <h3 class="prog-name">Band Rehearsals</h3>
+      <p class="prog-text">Where individual talent becomes collective excellence. Our collaborative band program teaches musicians to listen, lead, and perform together with intention and artistry.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-visual">
+    <div class="about-quote">
+      <p>"Music gives a soul to the universe, wings to the mind, flight to the imagination, and life to everything."</p>
+      <cite>— Plato</cite>
+    </div>
+  </div>
+
+  <div class="about-content">
+    <p class="section-eyebrow">Our mission</p>
+    <h2 class="section-title">Music isn't a hobby.<br><em>It's a foundation.</em></h2>
+    <p class="about-body">We believe music is more than a skill — it's confidence, creativity, self-expression, and joy. Our mission is to provide exceptional music and arts education for all ages and experience levels, from complete beginners to advanced performers.</p>
+    <p class="about-body">Through personalized instruction, inspiring teachers, performance opportunities, and a supportive community, we help our students unlock their potential, achieve their goals, and experience the lifelong rewards of making music.</p>
+    <p class="about-cta-text">Don't wait for the perfect time. The perfect time is now.<br>Book your first lesson today and discover how music can enrich your life, challenge your mind, and bring out the very best in you.</p>
+    <div class="about-stats">
+      <div>
+        <div class="stat-num">6<span>+</span></div>
+        <div class="stat-label">Programs offered</div>
+      </div>
+      <div>
+        <div class="stat-num">All</div>
+        <div class="stat-label">Ages welcome</div>
+      </div>
+      <div>
+        <div class="stat-num">3</div>
+        <div class="stat-label">Lesson lengths</div>
+      </div>
+    </div>
+    <a href="#contact" class="btn-navy">Book a Trial Lesson Today</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-left">
+    <p class="section-eyebrow">Get in touch</p>
+    <h2 class="section-title">Start your<br><em>musical journey.</em></h2>
+    <p class="section-lead">Your musical journey begins with a simple conversation. Share your goals, your interests, and your dreams — we'll create a path that helps you become the musician you've always wanted to be.</p>
+
+    <div class="contact-info">
+      <div class="contact-item">
+        <div class="contact-item-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        </div>
+        <div>
+          <div class="contact-item-label">Location</div>
+          <div class="contact-item-val">Simpsonville / Greenville, South Carolina</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.06 1.18 2 2 0 012 .02h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+        </div>
+        <div>
+          <div class="contact-item-label">Phone</div>
+          <div class="contact-item-val">(864) 688-9767</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="contact-item-label">Email</div>
+          <div class="contact-item-val">sterlingmusicacademyinfo@gmail.com</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div>
+          <div class="contact-item-label">Hours</div>
+          <div class="contact-item-val">Mon – Fri: 9am – 8pm<br>Saturday: 9am – 6pm</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORM — wired to Web3Forms -->
+  <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+
+    <!-- Web3Forms required hidden fields -->
+    <input type="hidden" name="access_key" value="bb60cbbc-9ba2-4026-a8f8-bdbecce7355c">
+    <input type="hidden" name="subject" value="New Lesson Request — Sterling Music Academy">
+    <input type="hidden" name="from_name" value="Sterling Music Academy Website">
+    <!-- Honeypot spam protection -->
+    <input type="checkbox" name="botcheck" style="display:none">
+
+    <h3>Book a Trial Lesson</h3>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" placeholder="First & Last Name" required>
+      </div>
+      <div class="form-group">
+        <label for="age">Age</label>
+        <input type="text" id="age" name="age" placeholder="e.g. 28">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone" placeholder="(864) 000-0000">
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="program">Program of Interest</label>
+      <select id="program" name="program">
+        <option value="">Select a program…</option>
+        <option>Piano</option>
+        <option>Flute</option>
+        <option>Guitar</option>
+        <option>Drums</option>
+        <option>Voice</option>
+        <option>Band Rehearsals</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="level">Experience Level</label>
+      <select id="level" name="experience_level">
+        <option value="">Select your level…</option>
+        <option>Complete Beginner</option>
+        <option>Some Experience</option>
+        <option>Intermediate</option>
+        <option>Advanced</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="message">Message (optional)</label>
+      <textarea id="message" name="message" placeholder="Tell us about yourself or any questions you have…"></textarea>
+    </div>
+
+    <button type="submit" class="form-submit" id="submitBtn">Send My Request →</button>
+
+    <!-- Success message shown after submission -->
+    <div class="form-success" id="formSuccess">
+      <span class="checkmark">✓</span>
+      <h4>Request Received!</h4>
+      <p>Thank you — we'll be in touch at your email within 24 hours to schedule your trial lesson.</p>
+    </div>
+
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <img src="images/logo.png" alt="Sterling Music Academy">
+    <span class="footer-logo-name">Sterling Music Academy</span>
+  </div>
+  <div class="footer-copy">© 2025 Sterling Music Academy, LLC. Simpsonville, SC. All rights reserved.</div>
+  <div class="footer-links">
+    <a href="#programs">Programs</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<script>
+  // Navbar scroll shadow
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.program-card, .about-visual, .about-content, .contact-left, .contact-form').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+  });
+
+  // Form submission with Web3Forms
+  const form = document.getElementById('contactForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const formSuccess = document.getElementById('formSuccess');
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    submitBtn.textContent = 'Sending…';
+    submitBtn.disabled = true;
+
+    const formData = new FormData(form);
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: json
+      });
+      const result = await response.json();
+
+      if (result.success) {
+        // Hide all form fields, show success message
+        Array.from(form.children).forEach(el => {
+          if (el !== formSuccess) el.style.display = 'none';
+        });
+        formSuccess.style.display = 'block';
+      } else {
+        submitBtn.textContent = 'Something went wrong — please try again';
+        submitBtn.disabled = false;
+      }
+    } catch (error) {
+      submitBtn.textContent = 'Network error — please try again';
+      submitBtn.disabled = false;
+    }
+  });
+</script>
+</body>
+</html>
